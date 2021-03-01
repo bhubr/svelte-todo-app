@@ -1,19 +1,21 @@
 <script>
-	export let items = [
+	import Todo from './Todo.svelte';
+	let items = [
     { id: 1, label: 'item 1', done: false },
     { id: 2, label: 'item 2', done: true },
     { id: 3, label: 'item 3', done: false },
   ];
+
+  const deleteTodo = (todoId) => {
+    items = items.filter(t => t.id !== todoId);
+  }
 </script>
 
 <section>
   <h3>Current items</h3>
   <ul>
-  {#each items as item}
-    <li class={item.done ? 'done' : ''}>
-      <input id={`cb-${item.id}`} type="checkbox" bind:checked={item.done} />
-      <label for={`cb-${item.id}`}>[{item.id}] {item.label}</label>
-    </li>
+  {#each items as todo}
+    <Todo todo={todo} on:delete={() => deleteTodo(todo.id)} />
   {/each}
   </ul>
 </section>
