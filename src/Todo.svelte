@@ -5,7 +5,7 @@
 </script>
 
 <li class={todo.done ? 'done' : ''}>
-  <input id={`cb-${todo.id}`} type="checkbox" bind:checked={todo.done} />
+  <input id={`cb-${todo.id}`} type="checkbox" checked={todo.done} on:click={() => dispatch('toggleDone')} />
   <label for={`cb-${todo.id}`}>[{todo.id}] {todo.label}</label>
   <button on:click={() => dispatch('delete')}>X</button>
 </li>
