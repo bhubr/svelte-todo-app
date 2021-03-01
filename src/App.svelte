@@ -1,15 +1,15 @@
 <script>
-	export let name;
+	import TodoList from './TodoList.svelte';
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<h1>Svelte TodoApp</h1>
+	<h2>First steps outside the REPL</h2>
+	<TodoList />
 </main>
 
 <style>
 	main {
-		text-align: center;
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
@@ -22,9 +22,17 @@
 		font-weight: 100;
 	}
 
+	h1, h2 {
+		text-align: center;
+	}
+
+	h2 {
+		font-weight: 200;
+	}
+
 	@media (min-width: 640px) {
 		main {
-			max-width: none;
+			max-width: 720px;
 		}
 	}
 </style>
